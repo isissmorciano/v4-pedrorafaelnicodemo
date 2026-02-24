@@ -205,3 +205,5 @@ def main():
         print(f"Libro più recente: {libro_più_recente['titolo']} ({libro_più_recente['anno']})")
         generi_dizionario = conta_per_genere(biblioteca_caricata)
         print(f"(generi_dizionario)\n")
+        titolo: str = str(input("Inserisci titolo da modificare: "))
+        nuovo_anno: int = int(input("Inserisci anno da modificare: "))
