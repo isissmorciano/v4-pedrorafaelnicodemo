@@ -93,21 +93,34 @@ def filtra_per_genere(libri: list[dict, genere: str]) -> list[dict]:
 #    Restituisce il dizionario del libro con l'anno più alto.
 #    Se la lista è vuota, restituisce `None`.
 
-def calcola_media_anno(libri: list[dict]) -> float:
-    totale = 0 
-
 # Nel `main()`:
 # - Chiama entrambe le funzioni sui libri caricati e stampa i risultati.
 
-# **Esempio di output:**
-# ```
+# Esempio di output:
 # Media anno di pubblicazione: 1963.5
 # Libro più recente: Harry Potter (1997)
-# ```
 
-# ---
+def calcola_media_anno(libri: list[dict]) -> float:
+    if libri == []
+        return 0.0
+    else:
+        totale = 0.0
+        for libro in libri:
+            totale = totale + libro['anno']
+        media = totale/(len(libri))
+        return media
 
-# ### Punto D – Conta libri per genere
+def trova_libro_piu_recente(libri: list[dict]) -> dict | None:
+    if libri == []:
+        return None
+    else:
+        libro_indice = +float("inf")
+        for libro in libri:
+            if libro['anno'] < libro_indice:
+                libro_indice = libro
+        return libro_indice
+
+# Punto D – Conta libri per genere
 
 # 1. Definisci `conta_per_genere(libri: list[dict]) -> dict[str, int]`:
 #    Restituisce un dizionario dove le chiavi sono i generi e i valori sono il numero di libri per genere.
@@ -116,17 +129,19 @@ def calcola_media_anno(libri: list[dict]) -> float:
 # - Chiama la funzione sui libri caricati.
 # - Stampa il risultato ordinato per genere (alfabetico).
 
-# **Esempio di output:**
-# ```
+# Esempio di output:
 # Libri per genere:
 # Fantasy: 1
 # Fantascienza: 2
 # Romanzo: 1
-# ```
 
-# ---
+def conta_per_genere(libri: list[dict]) -> dict[str, int]:
+    dizionario = {}
+    for libro in libri:
+        if libro['genere'] not in dizionario:
+            libro['genere']
 
-# ### Punto E – Bonus: Modifica anno di un libro 
+# Punto E – Bonus: Modifica anno di un libro 
 
 # Definisci `modifica_anno_libro(libri: list[dict], titolo: str, nuovo_anno: int) -> tuple[bool, str, list[dict]]`:
 # - Trova il libro con quel titolo (ricerca esatta) e aggiorna l'anno.
