@@ -112,6 +112,29 @@ def conta_per_genere(libri: list[dict]) -> dict[str, int]:
 # - Trova il libro con quel titolo (ricerca esatta) e aggiorna l'anno.
 # - Restituisce una tupla `(success, messaggio, libri_modificati)` dove `success` è `True` se il libro è stato trovato e modificato, altrimenti `False`. La lista modificata è sempre restituita.
 
+def ricerca_per_nome(libri):
+    #     termine = input("Termine di ricerca: ").strip().lower()
+    # if not termine:
+    #     print("Errore: termine non valido")
+    #     return
+
+    # risultati = []
+    # for libro in libri:
+    #     nome_lower = libro["nome"].lower()
+    #     if termine in nome_lower:
+    #         risultati.append(libro)
+
+    # if not risultati:
+    #     print("Nessuno studente trovato.")
+    #     return
+
+    # print(f"Trovato(i) {len(risultati)} risultato(i):")
+    # # for libro in libri:
+    # #     print(f"{libro['nome']} - Voto: {libro['voto']}")
+
+def modifica_anno_libro(libri: list[dict, titolo: str, nuovo_anno: int]) -> tuple[bool, str, list[dict]]:
+    pass
+
 # Nel `main()`:
 # - Chiama `salva_biblioteca` per salvare su `"biblioteca.json"`.
 # - Chiama `carica_biblioteca` e stampa quanti libri sono stati caricati.
@@ -176,4 +199,9 @@ def main():
         print(f"Libri di Fantascienza: {len(fantascienza)}")
         for i in range(len(fantascienza)):
             print(fantascienza['titolo'])
-        media_anno = calcola_media_anno
+        media_anno = calcola_media_anno(biblioteca_caricata)
+        print(f"Media anno di pubblicazione: {media_anno}")
+        libro_più_recente = trova_libro_piu_recente(biblioteca_caricata)
+        print(f"Libro più recente: {libro_più_recente['titolo']} ({libro_più_recente['anno']})")
+        generi_dizionario = conta_per_genere(biblioteca_caricata)
+        print(f"(generi_dizionario)\n")
